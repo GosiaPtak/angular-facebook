@@ -1,31 +1,35 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-
   let fixture = null;
   let component = null;
   let $component = null;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+      declarations: [AppComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.debugElement.componentInstance;
+    $component = fixture.debugElement.nativeElement;
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
-    $component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
   afterEach(() => {
     $component.remove();
-});
+  });
+
   it('should create the app', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render title in a h1 tag', () => {
+    fixture.detectChanges();
+    expect($component.querySelector('h1').textContent).toContain(
+      'Facebook',
+    );
   });
 });

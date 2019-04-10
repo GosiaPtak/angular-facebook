@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from '../../services/posts.service';
+import { PostsService } from '../../../posts/services/posts.service';
 import { Posts } from '../../interfaces/posts.interface';
 
 @Component({
@@ -24,7 +24,6 @@ private setupPosts() {
   .subscribe({
     next: (response) => {
       this.posts = response.posts;
-      //console.log(this.posts[0].author);
     },
     error: (err) => {
       console.log(err);

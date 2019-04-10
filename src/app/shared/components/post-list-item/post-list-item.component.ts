@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { Post } from '../../interfaces/post.interface';
+import { User } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-post-list-item',
@@ -10,15 +11,17 @@ import { Post } from '../../interfaces/post.interface';
 })
 export class PostListItemComponent implements OnInit {
   @Input() post: Post = null;
+  @Input() user: User = null;
 
   constructor() {}
 
   ngOnInit() {}
-  getAuthorLink() {
-    return  `/author/${ this.post.author.id }`;
+
+  getUserLink() {
+    return  `/users/${ this.post.author.id }`;
   }
 
   getPostLink() {
-    return  `/post/${ this.post.id }`;
+    return  `/posts/${ this.post.id }`;
   }
 }

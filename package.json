@@ -8,9 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "changelog": "git-changelog",
-    "predeploy": "ng build --base-href=/angular-facebook/",
-    "deploy": "gh-pages -d dist/angular-facebook/"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "predeploy": "ng build --prod --base-href=/angular-facebook/",
+    "deploy": "NODE_DEBUG=gh-pages gh-pages -d dist/angular-facebook/"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +19,7 @@
     "@angular/compiler": "~7.2.0",
     "@angular/core": "~7.2.0",
     "@angular/forms": "~7.2.0",
-    "@angular/platform-browser": "~7.2.0",
+    "@angular/platform-browser": "^7.2.12",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "bootstrap": "^4.3.1",
@@ -38,7 +38,9 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "ajv": "^6.10.0",
     "codelyzer": "~4.5.0",
+    "conventional-changelog-cli": "^2.0.12",
     "generate-changelog": "^1.7.1",
     "gh-pages": "^2.0.1",
     "git-changelog": "^1.1.2",

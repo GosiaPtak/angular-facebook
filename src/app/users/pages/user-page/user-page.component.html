@@ -1,0 +1,12 @@
+<ng-container *ngIf="user; else loading">
+        <div>
+          <img [src]="user.avatar_url" alt="" />
+          <div>
+            {{ user.name }}
+          </div>
+        </div>
+       </ng-container>
+       
+       <ng-template #loading>
+        <p>Trwa ładowanie....</p>
+       </ng-template>
