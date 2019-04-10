@@ -21,7 +21,7 @@ export class UsersService {
         const users = posts.map(post => {
           return post.author;
         });
-        //console.log(users);
+        // console.log(users);
         return users;
       }),
     );
